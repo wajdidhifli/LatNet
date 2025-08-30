@@ -37,6 +37,7 @@ b- Perturbations for multiple genes *AllGenes* could be estimated easily through
 library(parallel)
 allPerturbations = t(simplify2array(mclapply(AllGenes, .oneGenePerturbations, GRN, refData, targetData)))
 rownames(allPerturbations) = AllGenes
+```
 
 ##  Citation
 
