@@ -33,7 +33,10 @@ a- Estimate perturbations for one gene *MyGene*
 perturbations_for_MyGene = .oneGenePerturbations(gene = MyGene, network = GRN, refEXP = refData, targetEXP = targetData)
 ```
 b- Perturbations for multiple genes *AllGenes* could be estimated easily through parallel computation
-
+```R
+library(parallel)
+allPerturbations = t(simplify2array(mclapply(AllGenes, .oneGenePerturbations, GRN, refData, targetData)))
+rownames(allPerturbations) = AllGenes
 
 ##  Citation
 
@@ -53,8 +56,5 @@ If you use this work in your research or project, please cite the following pape
   url          = {https://doi.org/10.1186/s12859-018-2481-y}
 }
 
-```R
-library(parallel)
-allPerturbations = t(simplify2array(mclapply(AllGenes, .oneGenePerturbations, GRN, refData, targetData)))
-rownames(allPerturbations) = AllGenes
+
 ```
