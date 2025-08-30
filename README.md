@@ -3,6 +3,7 @@
 
 **LatNet** is a generic framework for deriving latent representations of input signals based on appropriate measures and a network structure that defines the relations between the features.
 
+
 > In the following is an example of such latent signals. We transform an input dataset of gene expressions in different conditions into 1) regulator activity signals or 2) gene perturbations based on a regulatory network structure that defines the relations between the genes of the input dataset.
 
 ## Quick user guide
@@ -32,6 +33,26 @@ a- Estimate perturbations for one gene *MyGene*
 perturbations_for_MyGene = .oneGenePerturbations(gene = MyGene, network = GRN, refEXP = refData, targetEXP = targetData)
 ```
 b- Perturbations for multiple genes *AllGenes* could be estimated easily through parallel computation
+
+
+##  Citation
+
+If you use this work in your research or project, please cite the following paper:
+
+### BibTeX
+```bibtex
+@article{Dhifli2019,
+  author       = {Dhifli, Wajdi and Puig, Julia and Dispot, Aurélien and Elati, Mohamed and others},
+  title        = {Latent network-based representations for large-scale gene expression data analysis},
+  journal      = {BMC Bioinformatics},
+  volume       = {19},
+  number       = {Suppl 13},
+  article-number = {466},
+  year         = {2019},
+  doi          = {10.1186/s12859-018-2481-y},
+  url          = {https://doi.org/10.1186/s12859-018-2481-y}
+}
+
 ```R
 library(parallel)
 allPerturbations = t(simplify2array(mclapply(AllGenes, .oneGenePerturbations, GRN, refData, targetData)))
